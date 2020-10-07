@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: "docker"
+    ports:
+      - "15432:5432"
+    volumes:
+      - /var/www/Docker-Compose/PostgreSQL:/var/lib/postgresql/data
+    networks:
+      - pg-network
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "docker@docker.com"
+      PGADMIN_DEFAULT_PASSWORD: "docker"
+    ports:
+      - "16543:80"
+    depends_on:
+      - postgres
+    networks:
+      - pg-network
+
+networks:
+  pg-network:
+    driver: bridge
