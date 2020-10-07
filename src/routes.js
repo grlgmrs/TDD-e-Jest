@@ -1,10 +1,8 @@
 const routes = require("express").Router();
 const { User } = require("./app/models");
 
-User.create({
-  name: "Gabriel",
-  email: "gabriel.ctiunesp@gmail.com",
-  password_hash: "123321",
+routes.post("/sessions", (req, res) => {
+  return res.status(200).send();
 });
 
 module.exports = routes;
