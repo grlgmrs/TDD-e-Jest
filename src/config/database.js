@@ -1,6 +1,7 @@
 module.exports = {
   host: "127.0.0.1",
-  username: "docker",
+  port: "15432",
+  username: "postgres",
   password: "docker",
   database: "tddauth",
   dialect: "postgres",
